@@ -65,11 +65,3 @@ export function BingoCard() {
     </div>
   );
 }
-
-export function B() {
-  return (
-    <th className={styles.b}>
-      <span>B</span>
-    </th>
-  );
-}

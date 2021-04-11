@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import Layout, { siteTitle } from "../components/layout";
-import Button from "../components/button";
 import utilStyles from "../styles/utils.module.css";
 
 export default function Home() {
@@ -12,8 +11,9 @@ export default function Home() {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
-          Hello, I'm Justin Thareja. I'm a software engineer and snowboarder.
-          Check out my latest work <a href="http://justinthareja.com">here</a>.
+          Hello, I&rsquo;m Justin Thareja. I&rsquo;m a software engineer and
+          snowboarder. Check out my latest work{" "}
+          <a href="http://justinthareja.com">here</a>.
         </p>
         <p>
           (This is a sample website - you’ll be building a site like this on{" "}

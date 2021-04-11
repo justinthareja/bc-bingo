@@ -1,0 +1,24 @@
+.gridBorder {
+  --grid-border-color: darkgrey;
+
+  width: 100vw;
+  border: 1px solid var(--grid-border-color);
+  background-color: var(--grid-border-color);
+}
+
+.grid {
+  display: grid;
+  /* --grid-num-columns and --grid-num-rows set as inline styles in Grid.js */
+  grid-template-columns: repeat(var(--grid-num-columns), 1fr);
+  grid-template-rows: repeat(var(--grid-num-rows), 1fr);
+  grid-gap: 1px;
+}
+
+.grid > * {
+  background-color: white;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

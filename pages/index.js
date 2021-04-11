@@ -30,6 +30,12 @@ export default function Home() {
           <small className={utilStyles.lightText}>April 4, 2021</small>
         </p>
       </section>
+      <section>
+        <h2>Boston Commons Bingo</h2>
+        <Link href="/bingo">
+          <a>Play Now</a>
+        </Link>
+      </section>
     </Layout>
   );
 }

@@ -1,9 +1,10 @@
 import * as React from "react";
 import styles from "./Grid.module.css";
 
-export default function Grid({ children, columns = 5, rows = 5 }) {
+export function Grid({ children, columns = 5, rows = 5 }) {
+  // current styling only works when all children are present
   if (children.length !== columns * rows) {
-    // current styling only works when all children are present
+    throw new Error("Number of grid children must equal total grid cells");
   }
 
   return (
@@ -19,4 +20,8 @@ export default function Grid({ children, columns = 5, rows = 5 }) {
       </div>
     </div>
   );
+}
+
+export function GridCell({ children }) {
+  return <div className={styles.gridCell}>{children}</div>;
 }

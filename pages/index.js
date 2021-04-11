@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import Layout, { siteTitle } from "../components/layout";
+import Layout, { siteTitle } from "../components/Layout";
 import utilStyles from "../styles/utils.module.css";
 
 export default function Home() {
@@ -23,7 +23,9 @@ export default function Home() {
       <section>
         <h2>Blog</h2>
         <p>
-          <Link href="/pages/first-post">My First Post</Link>
+          <Link href="/posts/first-post">
+            <a>My First Post</a>
+          </Link>
           <br />
           <small className={utilStyles.lightText}>April 4, 2021</small>
         </p>

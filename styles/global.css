@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Oxygen:400");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap");
 
 * {
   margin: 0;
@@ -6,6 +7,18 @@
   box-sizing: border-box;
 }
 
+:root {
+  --grey-darker: #b1ac9c;
+  --grey: #9fa7a4;
+  --white: #e9ece7;
+  --red: #d14a4d;
+  --pink: #eb678a;
+  --tan: #ddcea2;
+  --yellow: #b8b752;
+  --light-green: #709e54;
+  --dark-green: #26551a;
+  --light-blue: #b4dae4;
+}
 html {
   font-size: 100%;
 } /*16px*/

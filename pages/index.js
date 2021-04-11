@@ -1,37 +1,16 @@
 import Head from "next/head";
 import Link from "next/link";
-import Layout, { siteTitle } from "../components/Layout";
-import utilStyles from "../styles/utils.module.css";
+import { Layout, siteTitle } from "../components/Layout";
+import { B } from "../components/BingoCard";
 
 export default function Home() {
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>
-          Hello, I&rsquo;m Justin Thareja. I&rsquo;m a software engineer and
-          snowboarder. Check out my latest work{" "}
-          <a href="http://justinthareja.com">here</a>.
-        </p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{" "}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
       <section>
-        <h2>Blog</h2>
-        <p>
-          <Link href="/posts/first-post">
-            <a>My First Post</a>
-          </Link>
-          <br />
-          <small className={utilStyles.lightText}>April 4, 2021</small>
-        </p>
-      </section>
-      <section>
-        <h2>Boston Commons Bingo</h2>
+        <h1>Boston Commons Bingo</h1>
         <Link href="/bingo">
           <a>Play Now</a>
         </Link>

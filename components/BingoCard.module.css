@@ -1,0 +1,84 @@
+.table {
+  height: 100vh;
+  width: 100vw;
+  table-layout: fixed;
+  background-color: var(--white);
+  color: black;
+}
+
+.table,
+.tr,
+.cell {
+  border: 1px solid black;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.th {
+  /* with this the height scales a little with font-size, 
+  but the actual height of these cells is still much
+  larger than 1px? why? */
+  height: 1px;
+
+  font-family: "Comic Neue", cursive;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.th > span {
+  width: 70%;
+  height: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.cell {
+  padding: 0 0.5rem;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.b {
+  composes: th;
+  background-color: var(--pink);
+  color: var(--pink);
+}
+
+.i {
+  composes: th;
+  background-color: var(--yellow);
+  color: var(--yellow);
+}
+
+.n {
+  composes: th;
+  background-color: var(--light-green);
+  color: var(--light-green);
+}
+
+.g {
+  composes: th;
+  background-color: var(--dark-green);
+  color: var(--dark-green);
+}
+
+.o {
+  composes: th;
+  background-color: var(--light-blue);
+  color: var(--light-blue);
+}
+
+@media screen and (min-width: 750px) {
+  .table {
+    width: 750px;
+  }
+}
+
+@media screen and (min-height: 750px) {
+  .table {
+    height: 750px;
+  }
+}

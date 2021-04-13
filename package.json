@@ -10,6 +10,7 @@
     "format": "prettier --write './**/*.{js,css,json}'"
   },
   "dependencies": {
+    "canvas-confetti": "^1.4.0",
     "classnames": "^2.2.6",
     "next": "^10.0.0",
     "react": "17.0.1",

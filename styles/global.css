@@ -20,8 +20,14 @@
   --light-blue: #b4dae4;
 }
 html {
-  font-size: 100%;
-} /*16px*/
+  font-size: 14px;
+}
+
+@media screen and (min-width: 650px) {
+  html {
+    font-size: 16px;
+  }
+}
 
 body {
   background: white;

@@ -13,9 +13,11 @@ export function BingoCell({ value, onClick, isChecked, isWinner }) {
         <div className={cx({ marker: true, isWinner })}>
           <Image
             priority
-            width="100%"
-            height="100%"
-            src={`/images/watercolor-circle-${isWinner ? "red" : "blue"}.png`}
+            width={50}
+            height={50}
+            src={`/images/watercolor-circle-${
+              isWinner ? "orange" : "blue"
+            }.png`}
             alt="Blue circle"
           />
         </div>

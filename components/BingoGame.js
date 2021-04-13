@@ -1,23 +1,28 @@
 import * as React from "react";
-import { bingoOptions, checkWin } from "../utils/helpers";
+import { getBingoOptions, checkWin } from "../utils/helpers";
 import { BingoCard } from "./BingoCard";
+import styles from "./BingoGame.module.css";
 
 export function BingoGame() {
+  const bingoOptions = React.useMemo(() => getBingoOptions(25), []);
   const [cells, setCells] = React.useState(
-    bingoOptions.slice(0, 25).map((value) => ({ value, isChecked: false }))
+    bingoOptions.map((value) => ({ value, isChecked: false }))
   );
 
   const toggleIsChecked = (i) => () => {
     const newCells = cells.slice();
-    newCells[i].isChecked = !newCells[i].isChecked;
+    const cell = newCells[i];
+    cell.isChecked = !cell.isChecked;
     setCells(newCells);
   };
 
   return (
-    <BingoCard
-      cells={cells}
-      handleClick={toggleIsChecked}
-      winningLine={checkWin(cells)}
-    />
+    <div className={styles.cardWrapper}>
+      <BingoCard
+        cells={cells}
+        handleClick={toggleIsChecked}
+        winningLine={checkWin(cells)}
+      />
+    </div>
   );
 }

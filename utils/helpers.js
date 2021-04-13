@@ -1,4 +1,4 @@
-export const bingoOptions = [
+export const BINGO_OPTIONS = [
   "Mike's Pastry Box",
   "Smell of Weed",
   "Doing Yoga",
@@ -41,6 +41,7 @@ export const bingoOptions = [
   "Hammock",
 ];
 
+// Checks for 5 in a row
 export function checkWin(cells) {
   const lines = [
     // Horizontal
@@ -73,4 +74,22 @@ export function checkWin(cells) {
   }
 
   return [];
+}
+
+export function shuffleArray(array) {
+  let result = array.slice();
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+export function getBingoOptions(length) {
+  let options = shuffleArray(BINGO_OPTIONS);
+  if (typeof length === "number") {
+    options = options.slice(0, length);
+  }
+
+  return options;
 }

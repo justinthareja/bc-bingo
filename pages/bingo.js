@@ -1,10 +1,10 @@
 import { Layout } from "../components/Layout";
-import { BingoCard } from "../components/BingoCard";
+import { BingoGame } from "../components/BingoGame";
 
 export default function Bingo() {
   return (
     <Layout>
-      <BingoCard />
+      <BingoGame />
     </Layout>
   );
 }

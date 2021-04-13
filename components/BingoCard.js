@@ -1,7 +1,21 @@
-import { BINGO_OPTIONS } from "../utils/bingoOptions";
-import styles from "./BingoCard.module.css";
+import { BingoCell } from "./BingoCell";
+import styles from "./BingoGame.module.css";
 
-export function BingoCard() {
+export function BingoCard({ cells, handleClick, winningLine }) {
+  function renderCell(i) {
+    const { value, isChecked } = cells[i];
+    const isWinner = winningLine.includes(i);
+
+    return (
+      <BingoCell
+        value={value}
+        isChecked={isChecked}
+        onClick={handleClick(i)}
+        isWinner={isWinner}
+      />
+    );
+  }
+
   return (
     <div className={styles.container}>
       <table className={styles.table}>
@@ -26,39 +40,39 @@ export function BingoCard() {
         </thead>
         <tbody className={styles.tbody}>
           <tr className={styles.tr}>
-            {BINGO_OPTIONS.slice(0, 5).map((option) => (
-              <td key={option} className={styles.cell}>
-                {option}
-              </td>
-            ))}
+            {renderCell(0)}
+            {renderCell(1)}
+            {renderCell(2)}
+            {renderCell(3)}
+            {renderCell(4)}
           </tr>
           <tr className={styles.tr}>
-            {BINGO_OPTIONS.slice(5, 10).map((option) => (
-              <td key={option} className={styles.cell}>
-                {option}
-              </td>
-            ))}
+            {renderCell(5)}
+            {renderCell(6)}
+            {renderCell(7)}
+            {renderCell(8)}
+            {renderCell(9)}
           </tr>
           <tr className={styles.tr}>
-            {BINGO_OPTIONS.slice(10, 15).map((option) => (
-              <td key={option} className={styles.cell}>
-                {option}
-              </td>
-            ))}
+            {renderCell(10)}
+            {renderCell(11)}
+            {renderCell(12)}
+            {renderCell(13)}
+            {renderCell(14)}
           </tr>
           <tr className={styles.tr}>
-            {BINGO_OPTIONS.slice(15, 20).map((option) => (
-              <td key={option} className={styles.cell}>
-                {option}
-              </td>
-            ))}
+            {renderCell(15)}
+            {renderCell(16)}
+            {renderCell(17)}
+            {renderCell(18)}
+            {renderCell(19)}
           </tr>
           <tr className={styles.tr}>
-            {BINGO_OPTIONS.slice(20, 25).map((option) => (
-              <td key={option} className={styles.cell}>
-                {option}
-              </td>
-            ))}
+            {renderCell(20)}
+            {renderCell(21)}
+            {renderCell(22)}
+            {renderCell(23)}
+            {renderCell(24)}
           </tr>
         </tbody>
       </table>

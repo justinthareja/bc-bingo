@@ -7,16 +7,25 @@ import { WinCard } from "../components/WinCard";
 
 export default function Bingo() {
   const [winner, setWinner] = React.useState(null);
+  const [congrats, setCongrats] = React.useState([]);
   const socket = useSocket();
 
-  useSocket("win", ({ userID, username }) => {
-    setWinner(socket.id === userID ? "You" : username);
+  useSocket("win", (winner) => {
+    setWinner(socket.id === winner.userID ? "You" : winner);
     confetti({ spread: 90, particleCount: 100, origin: { y: 1 } });
+  });
+
+  useSocket("congrats", (data) => {
+    setCongrats([...congrats, data]);
   });
 
   return (
     <Layout>
-      {winner ? <WinCard winner={winner} /> : <BingoGame socket={socket} />}
+      {winner ? (
+        <WinCard socket={socket} winner={winner} congrats={congrats} />
+      ) : (
+        <BingoGame socket={socket} />
+      )}
     </Layout>
   );
 }

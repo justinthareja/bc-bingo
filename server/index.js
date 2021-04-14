@@ -23,6 +23,13 @@ io.on("connection", (socket) => {
     });
   });
 
+  socket.on("congrats", ({ message, to }) => {
+    socket.to(to).emit("congrats", {
+      message,
+      from: socket.username,
+    });
+  });
+
   const users = [];
   for (let [id, socket] of io.of("/").sockets) {
     users.push({

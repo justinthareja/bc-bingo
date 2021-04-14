@@ -20,7 +20,7 @@ export function WinCard({ winner, socket, congrats }) {
       {winner === "You" ? (
         <div>
           <h1>You Win!</h1>
-          {congrats.map(({ from, type, message, left }, i) => {
+          {congrats.map(({ from, type, message, left, r, g, b }, i) => {
             if (type === "thumbs-up") {
               return (
                 <div className="floater" style={{ left }} key={`${from}-${i}`}>
@@ -31,6 +31,22 @@ export function WinCard({ winner, socket, congrats }) {
                     width={50}
                   />
                 </div>
+              );
+            }
+            if (type === "balloon") {
+              return (
+                <div
+                  className="floater balloon"
+                  style={{
+                    left,
+                    backgroundColor: `rgba(${r},${g},${b},0.7)`,
+                    color: `rgba(${r},${g},${b},0.7)`,
+                    boxShadow: `inset -7px -3px 10px rgba(${r - 10},${g - 10},${
+                      b - 10
+                    },0.7) `,
+                  }}
+                  key={`${from}-${i}`}
+                ></div>
               );
             }
             return (
@@ -71,6 +87,13 @@ export function WinCard({ winner, socket, congrats }) {
             })}
           >
             Thumbs Up!
+          </button>
+          <button
+            onClick={emitCongrats({
+              type: "balloon",
+            })}
+          >
+            Send Balloons!
           </button>
         </div>
       )}

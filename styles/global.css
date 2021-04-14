@@ -94,12 +94,19 @@ img {
 
 @keyframes float {
   from {
-    opacity: 1;
     transform: translateY(100vh);
   }
   to {
-    opacity: 0.2;
-    transform: translateY(-100vh);
+    transform: translateY(-200vh);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(-10);
+  }
+  to {
+    transform: rotateY(10);
   }
 }
 
@@ -128,4 +135,37 @@ img {
   top: 0;
   left: 0;
   animation: float 7s ease-in infinite;
+}
+
+.balloon {
+  height: 125px;
+  width: 105px;
+  border-radius: 75% 75% 70% 70%;
+  position: absolute;
+}
+
+.balloon:before {
+  content: "";
+  height: 75px;
+  width: 1px;
+  padding: 1px;
+  background-color: #fdfd96;
+  display: block;
+  position: absolute;
+  top: 125px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.balloon:after {
+  content: "▲";
+  text-align: center;
+  display: block;
+  position: absolute;
+  color: inherit;
+  top: 120px;
+  left: 0;
+  right: 0;
+  margin: -5px;
 }

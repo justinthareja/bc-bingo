@@ -16,7 +16,16 @@ export default function Bingo() {
   });
 
   useSocket("congrats", (content) => {
-    setCongrats([...congrats, { ...content, left: `${random(100)}%` }]);
+    setCongrats([
+      ...congrats,
+      {
+        ...content,
+        left: `${random(90)}%`,
+        r: random(225),
+        g: random(225),
+        b: random(225),
+      },
+    ]);
   });
 
   return (

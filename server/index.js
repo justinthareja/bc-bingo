@@ -17,7 +17,10 @@ const messages = {
 // socket.io server
 io.on("connection", (socket) => {
   socket.on("win", () => {
-    io.emit("win", socket.username);
+    io.emit("win", {
+      userID: socket.id,
+      username: socket.username,
+    });
   });
 
   const users = [];

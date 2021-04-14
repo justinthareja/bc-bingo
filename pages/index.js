@@ -37,11 +37,15 @@ export default function Home() {
     setUsers([...users, user]);
   });
 
+  useSocket("connect", () => {
+    router.push("/bingo");
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setHasUsername(true);
     socket.auth = { username };
     socket.connect();
-    router.push("/bingo");
   };
 
   return (

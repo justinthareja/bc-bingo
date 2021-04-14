@@ -1,5 +1,6 @@
 import * as React from "react";
 import confetti from "canvas-confetti";
+import { useSocket } from "../hooks/useSocket";
 import { getBingoOptions, checkWin } from "../utils/helpers";
 import { BingoCard } from "./BingoCard";
 import styles from "./BingoGame.module.css";
@@ -11,12 +12,16 @@ export function BingoGame() {
   );
 
   const winningLine = checkWin(cells);
+  const socket = useSocket("win", () => {
+    confetti({ spread: 90, particleCount: 100, origin: { y: 1 } });
+  });
 
   React.useEffect(() => {
     if (winningLine.length !== 0) {
-      confetti({ spread: 90, particleCount: 100, origin: { y: 1 } });
+      // trigger win
+      socket.emit("win");
     }
-  }, [winningLine.length]);
+  }, [winningLine.length, socket]);
 
   const toggleIsChecked = (i) => () => {
     const newCells = cells.slice();

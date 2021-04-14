@@ -15,8 +15,8 @@ export default function Bingo() {
     confetti({ spread: 90, particleCount: 100, origin: { y: 1 } });
   });
 
-  useSocket("congrats", (data) => {
-    setCongrats([...congrats, { ...data, left: `${random(100)}%` }]);
+  useSocket("congrats", (content) => {
+    setCongrats([...congrats, { ...content, left: `${random(100)}%` }]);
   });
 
   return (

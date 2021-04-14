@@ -23,10 +23,10 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.on("congrats", ({ message, to }) => {
+  socket.on("congrats", ({ to, ...content }) => {
     socket.to(to).emit("congrats", {
-      message,
       from: socket.username,
+      ...content,
     });
   });
 

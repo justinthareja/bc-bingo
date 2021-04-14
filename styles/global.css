@@ -91,3 +91,21 @@ img {
   max-width: 100%;
   display: block;
 }
+
+@keyframes float {
+  from {
+    opacity: 1;
+    transform: translateY(100vh);
+  }
+  to {
+    opacity: 0.2;
+    transform: translateY(-100vh);
+  }
+}
+
+.floater {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: float 7s ease-in infinite;
+}

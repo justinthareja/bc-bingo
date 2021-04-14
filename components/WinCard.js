@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 export function WinCard({ winner, socket, congrats }) {
   const router = useRouter();
@@ -19,13 +20,11 @@ export function WinCard({ winner, socket, congrats }) {
       {winner === "You" ? (
         <div>
           <h1>You Win!</h1>
-          <ul>
-            {congrats.map(({ from, message }, i) => (
-              <li key={`${from}-${i}`}>
-                {message} - {from}
-              </li>
-            ))}
-          </ul>
+          {congrats.map(({ from, message, left }, i) => (
+            <div className="floater" style={{ left }} key={`${from}-${i}`}>
+              {message} - {from}
+            </div>
+          ))}
         </div>
       ) : (
         <div>

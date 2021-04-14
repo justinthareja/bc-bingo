@@ -16,7 +16,7 @@ export default function Bingo() {
   });
 
   useSocket("congrats", (data) => {
-    setCongrats([...congrats, data]);
+    setCongrats([...congrats, { ...data, left: `${random(100)}%` }]);
   });
 
   return (
@@ -28,4 +28,8 @@ export default function Bingo() {
       )}
     </Layout>
   );
+}
+
+function random(num) {
+  return Math.floor(Math.random() * num);
 }

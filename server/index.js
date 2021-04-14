@@ -17,10 +17,32 @@ const messages = {
 // socket.io server
 io.on("connection", (socket) => {
   socket.on("win", () => {
-    io.emit("win");
+    io.emit("win", socket.username);
   });
 
-  socket.on("disconnect", () => {});
+  const users = [];
+  for (let [id, socket] of io.of("/").sockets) {
+    users.push({
+      userID: id,
+      username: socket.username,
+    });
+  }
+  socket.emit("users", users);
+
+  // notify existing users
+  socket.broadcast.emit("user connected", {
+    userID: socket.id,
+    username: socket.username,
+  });
+});
+
+io.use((socket, next) => {
+  const username = socket.handshake.auth.username;
+  if (!username) {
+    return next(new Error("invalid username"));
+  }
+  socket.username = username;
+  next();
 });
 
 nextApp.prepare().then(() => {

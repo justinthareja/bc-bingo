@@ -12,7 +12,8 @@ export function BingoGame() {
   );
 
   const winningLine = checkWin(cells);
-  const socket = useSocket("win", () => {
+  const socket = useSocket("win", (username) => {
+    alert(`${username} wins!`);
     confetti({ spread: 90, particleCount: 100, origin: { y: 1 } });
   });
 

@@ -1,7 +1,13 @@
 import * as React from "react";
 import io from "socket.io-client";
 
-const socket = io();
+const socket = io(undefined, { autoConnect: false });
+
+if (process.env.NODE_ENV !== "production") {
+  socket.onAny((event, ...args) => {
+    console.log(event, args);
+  });
+}
 
 export function useSocket(eventName, cb) {
   React.useEffect(() => {

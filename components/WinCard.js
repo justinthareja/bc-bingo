@@ -21,8 +21,13 @@ export function WinCard({ winner, socket, congrats }) {
         <div>
           <h1>You Win!</h1>
           {congrats.map(({ from, message, left }, i) => (
-            <div className="floater" style={{ left }} key={`${from}-${i}`}>
-              {message} - {from}
+            <div
+              className="floater chat-bubble"
+              style={{ left }}
+              key={`${from}-${i}`}
+            >
+              <div className="chat-message">{message}</div>
+              <div className="chat-author">- {from}</div>
             </div>
           ))}
         </div>

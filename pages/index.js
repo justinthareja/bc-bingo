@@ -2,7 +2,8 @@ import * as React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useSocket } from "../hooks/useSocket";
-import { Layout, siteTitle } from "../components/Layout";
+import { Layout, siteTitle } from "../components/Payout";
+import styles from "./index.module.css";
 
 export default function Home() {
   const [username, setUsername] = React.useState("");
@@ -53,16 +54,18 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section>
-        <h1>Boston Commons Bingo</h1>
+      <section className={styles.section}>
+        <h1>
+          <span>Boston Commons</span>
+        </h1>
         {!hasUsername && (
-          <form onSubmit={handleSubmit}>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="username">
-              Username
               <input
                 type="text"
                 name="username"
                 id="username"
+                placeholder="Enter a username..."
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />

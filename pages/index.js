@@ -2,7 +2,6 @@ import * as React from "react";
 import { useRouter } from "next/router";
 import { useSocket } from "../hooks/useSocket";
 import { Input } from "../components/Input";
-import styles from "./index.module.css";
 
 export default function Home() {
   const [username, setUsername] = React.useState("");
@@ -48,14 +47,12 @@ export default function Home() {
   }
 
   return (
-    <section className={styles.container}>
-      <Input
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        onBlur={handleSubmit}
-        onSubmit={handleSubmit}
-        isLoading={isLoading}
-      />
-    </section>
+    <Input
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+      onBlur={handleSubmit}
+      onSubmit={handleSubmit}
+      isLoading={isLoading}
+    />
   );
 }

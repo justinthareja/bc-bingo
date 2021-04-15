@@ -2,7 +2,6 @@ import * as React from "react";
 
 import { getBingoOptions, checkWin } from "../utils/helpers";
 import { BingoCard } from "./BingoCard";
-import styles from "./BingoGame.module.css";
 
 export function BingoGame({ socket }) {
   const bingoOptions = React.useMemo(() => getBingoOptions(25), []);
@@ -27,12 +26,10 @@ export function BingoGame({ socket }) {
   };
 
   return (
-    <div className={styles.bingoWrapper}>
-      <BingoCard
-        cells={cells}
-        handleClick={toggleIsChecked}
-        winningLine={winningLine}
-      />
-    </div>
+    <BingoCard
+      cells={cells}
+      handleClick={toggleIsChecked}
+      winningLine={winningLine}
+    />
   );
 }

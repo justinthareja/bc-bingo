@@ -1,6 +1,7 @@
+import { Loader } from "../components/Loader";
 import styles from "./Input.module.scss";
 // https://codepen.io/bertdida/pen/xyPKRX
-export function Input({ value, onChange, onBlur, onSubmit }) {
+export function Input({ value, onChange, onBlur, onSubmit, isLoading }) {
   return (
     <div className={styles["c-wrap"]}>
       <input className={styles["c-checkbox"]} type="checkbox" id="checkbox" />
@@ -15,14 +16,14 @@ export function Input({ value, onChange, onBlur, onSubmit }) {
             onChange={onChange}
             onBlur={onBlur}
           />
-          <label className={styles["c-form__buttonLabel"]} for="checkbox">
+          <label className={styles["c-form__buttonLabel"]} htmlFor="checkbox">
             <button className={styles["c-form__button"]} type="button">
-              Send
+              {isLoading ? <Loader /> : "Send"}
             </button>
           </label>
           <label
             className={styles["c-form__toggle"]}
-            for="checkbox"
+            htmlFor="checkbox"
             data-title="Play"
           ></label>
         </form>

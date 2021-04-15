@@ -68,6 +68,7 @@ export default function Home() {
                 placeholder="Enter a username..."
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                onBlur={handleSubmit}
               />
             </label>
           </form>

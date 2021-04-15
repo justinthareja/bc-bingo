@@ -50,13 +50,11 @@ export function WinCard({ winner, socket, congrats }) {
               );
             }
             return (
-              <div
-                className="floater chat-bubble"
-                style={{ left }}
-                key={`${from}-${i}`}
-              >
-                <div className="chat-message">{message}</div>
-                <div className="chat-author">- {from}</div>
+              <div className="floater" style={{ left }} key={`${from}-${i}`}>
+                <div className="bubble">
+                  <div className="bubble-message">&ldquo;{message}&rdquo;</div>
+                  <div className="bubble-author">- {from}</div>
+                </div>
               </div>
             );
           })}

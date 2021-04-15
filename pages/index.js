@@ -21,7 +21,7 @@ export default function Home() {
     setIsLoading(false);
   });
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (isConnected) {
       router.push("/bingo");
     }

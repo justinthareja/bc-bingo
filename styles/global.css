@@ -134,7 +134,7 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  /* animation: float 7s ease-in infinite; */
+  animation: float 7s ease-in infinite;
 }
 
 .balloon {

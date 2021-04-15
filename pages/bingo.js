@@ -20,7 +20,7 @@ export default function Bingo() {
       ...congrats,
       {
         ...content,
-        left: `${random(90)}%`,
+        left: `${random(75)}%`,
         r: random(225),
         g: random(225),
         b: random(225),

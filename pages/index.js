@@ -2,7 +2,7 @@ import * as React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useSocket } from "../hooks/useSocket";
-import { Layout, siteTitle } from "../components/Layout";
+import { siteTitle } from "../components/Layout";
 import { Input } from "../components/Input";
 import styles from "./index.module.css";
 
@@ -55,20 +55,15 @@ export default function Home() {
   };
 
   return (
-    <Layout>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={styles.container}>
-        {!hasUsername && (
-          <Input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            onBlur={handleSubmit}
-            onSubmit={handleSubmit}
-          />
-        )}
-      </section>
-    </Layout>
+    <section className={styles.container}>
+      {!hasUsername && (
+        <Input
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          onBlur={handleSubmit}
+          onSubmit={handleSubmit}
+        />
+      )}
+    </section>
   );
 }

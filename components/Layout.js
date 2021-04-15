@@ -18,6 +18,7 @@ export function Layout({ children }) {
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
         <meta name="og:title" content={siteTitle} />
+        <title>{siteTitle}</title>
       </Head>
       <div className={styles.bgWrap}>
         <Image
@@ -27,7 +28,7 @@ export function Layout({ children }) {
           objectFit="cover"
         />
       </div>
-      <main className={styles.main}>{children}</main>
+      <main>{children}</main>
     </div>
   );
 }

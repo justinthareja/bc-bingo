@@ -1,7 +1,6 @@
 import * as React from "react";
 import confetti from "canvas-confetti";
 import { useSocket } from "../hooks/useSocket";
-import { Layout } from "../components/Layout";
 import { BingoGame } from "../components/BingoGame";
 import { WinCard } from "../components/WinCard";
 
@@ -28,14 +27,10 @@ export default function Bingo() {
     ]);
   });
 
-  return (
-    <Layout>
-      {winner ? (
-        <WinCard socket={socket} winner={winner} congrats={congrats} />
-      ) : (
-        <BingoGame socket={socket} />
-      )}
-    </Layout>
+  return winner ? (
+    <WinCard socket={socket} winner={winner} congrats={congrats} />
+  ) : (
+    <BingoGame socket={socket} />
   );
 }
 

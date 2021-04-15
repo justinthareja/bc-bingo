@@ -1,11 +1,12 @@
 import Head from "next/head";
-import styles from "./Payout.module.css";
+import Image from "next/image";
+import styles from "./Layout.module.css";
 
 export const siteTitle = "Boston Commons Bingo";
 
 export function Layout({ children }) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -14,6 +15,14 @@ export function Layout({ children }) {
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
+      <div className={styles.bgWrap}>
+        <Image
+          src="/images/bc-ducks.jpeg"
+          alt="Boston Commons Ducks"
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
       <main className={styles.main}>{children}</main>
     </div>
   );

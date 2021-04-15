@@ -1,7 +1,7 @@
 import * as React from "react";
 import confetti from "canvas-confetti";
 import { useSocket } from "../hooks/useSocket";
-import { Layout } from "../components/Payout";
+import { Layout } from "../components/Layout";
 import { BingoGame } from "../components/BingoGame";
 import { WinCard } from "../components/WinCard";
 

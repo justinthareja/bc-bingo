@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useSocket } from "../hooks/useSocket";
 import { Layout, siteTitle } from "../components/Layout";
+import { Input } from "../components/Input";
 import styles from "./index.module.css";
 
 export default function Home() {
@@ -43,6 +44,10 @@ export default function Home() {
   });
 
   const handleSubmit = (e) => {
+    if (!username) {
+      return;
+    }
+
     e.preventDefault();
     setHasUsername(true);
     socket.auth = { username };
@@ -54,24 +59,14 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={styles.section}>
-        <h1>
-          <span>Boston Commons</span>
-        </h1>
+      <section className={styles.container}>
         {!hasUsername && (
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <label htmlFor="username">
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Enter a username..."
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                onBlur={handleSubmit}
-              />
-            </label>
-          </form>
+          <Input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            onBlur={handleSubmit}
+            onSubmit={handleSubmit}
+          />
         )}
       </section>
     </Layout>

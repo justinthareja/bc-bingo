@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "./Layout.module.css";
+import styles from "./Payout.module.css";
 
 export const siteTitle = "Boston Commons Bingo";
 

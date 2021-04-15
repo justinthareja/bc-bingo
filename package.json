@@ -2,6 +2,9 @@
   "name": "learn-starter",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "15.x"
+  },
   "scripts": {
     "dev": "node server/index.js",
     "build": "next build",

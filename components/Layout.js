@@ -13,6 +13,10 @@ export function Layout({ children }) {
           name="description"
           content="Accumulate points while watching people at the Boston Commons"
         />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
         <meta name="og:title" content={siteTitle} />
       </Head>
       <div className={styles.bgWrap}>

@@ -28,7 +28,7 @@ export function Layout({ children }) {
           objectFit="cover"
         />
       </div>
-      <main className={styles.main}>{children}</main>
+      <main>{children}</main>
     </div>
   );
 }

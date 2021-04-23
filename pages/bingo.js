@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import confetti from "canvas-confetti";
 import { useSocket } from "../hooks/useSocket";
@@ -10,6 +11,7 @@ export default function Bingo() {
   const [winner, setWinner] = React.useState(null);
   const [congrats, setCongrats] = React.useState([]);
   const socket = useSocket();
+  const router = useRouter();
   const isWinner = winner && winner.userID === socket.id;
   const isLoser = winner && winner.userID !== socket.id;
 
@@ -37,6 +39,16 @@ export default function Bingo() {
 
   return (
     <div style={{ padding: "20px" }}>
+      {isWinner && (
+        <button
+          onClick={() => {
+            socket.disconnect();
+            router.push("/");
+          }}
+        >
+          New Game
+        </button>
+      )}
       <BingoGame socket={socket} />
       <Twirl in={isWinner}>
         <h3>YOU WIN!!!</h3>
